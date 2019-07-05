@@ -14,8 +14,6 @@ phases:
       - echo Test started on `date`
       - echo Backend and coverage test
       - mvn verify
-      - echo Frontend test
-      - mvn com.github.eirslett:frontend-maven-plugin:npm -Dfrontend.npm.arguments='run test
       - echo Build started on `date`
       - mvn verify -Pprod -Dskiptest
       - echo Building the Docker image...
