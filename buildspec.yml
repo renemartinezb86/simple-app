@@ -12,7 +12,6 @@ phases:
   build:
     commands:
       - echo Test started on `date`
-      - echo Backend and coverage test
       - mvn verify
       - echo Build started on `date`
       - mvn verify -Pprod -Dskiptest
