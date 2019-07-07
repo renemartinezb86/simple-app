@@ -1,6 +1,9 @@
 version: 0.2
 
 phases:
+  installs:
+    runtime-versions:
+      java: openjdk8
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
@@ -12,9 +15,9 @@ phases:
   build:
     commands:
       - echo Test started on `date`
-      - mvn verify
+      - ./mvnw verify
       - echo Build started on `date`
-      - mvn verify -Pprod -Dskiptest
+      - ./mvnw verify -Pprod -Dskiptest
       - echo Building the Docker image...
       - docker build -t $REPOSITORY_URI:latest .
       - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
